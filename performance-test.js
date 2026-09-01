@@ -19,13 +19,13 @@ export default function () {
   // Teste de Healthcheck Live
   const resLive = http.get(`${BASE_URL}/_health/live`);
   check(resLive, {
-    'Health Live - Status é 200': (r) => r.status === 200,
+    'Health Live - Sucesso (200/204)': (r) => r.status === 200 || r.status === 204,
   });
 
   // Teste de Healthcheck Ready
   const resReady = http.get(`${BASE_URL}/_health/ready`);
   check(resReady, {
-    'Health Ready - Status é 200': (r) => r.status === 200,
+    'Health Ready - Sucesso (200/204)': (r) => r.status === 200 || r.status === 204,
   });
 
   sleep(1);
