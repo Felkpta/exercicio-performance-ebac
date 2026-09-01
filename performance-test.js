@@ -13,17 +13,16 @@ export const options = {
   },
 };
 
-// Adicionado /public na rota base da API
 const BASE_URL = 'http://localhost:3000/api/public';
 
 export default function () {
-  // Teste no Endpoint de Produtos
+  // Teste no Endpoint Público de Produtos
   const resProdutos = http.get(`${BASE_URL}/products`);
   check(resProdutos, {
     'Produtos - Status é 200': (r) => r.status === 200,
   });
 
-  // Teste no Endpoint de Clientes
+  // Teste no Endpoint Público de Clientes
   const resClientes = http.get(`${BASE_URL}/customers`);
   check(resClientes, {
     'Clientes - Status é 200': (r) => r.status === 200,
