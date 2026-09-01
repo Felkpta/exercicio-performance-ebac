@@ -13,7 +13,8 @@ export const options = {
   },
 };
 
-const BASE_URL = 'http://localhost:3000/api';
+// Adicionado /public na rota base da API
+const BASE_URL = 'http://localhost:3000/api/public';
 
 export default function () {
   // Teste no Endpoint de Produtos
