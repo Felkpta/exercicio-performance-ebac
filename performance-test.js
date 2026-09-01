@@ -13,19 +13,19 @@ export const options = {
   },
 };
 
-const BASE_URL = 'http://localhost:3000/api/public';
+const BASE_URL = 'http://localhost:3000/api';
 
 export default function () {
-  // Teste no Endpoint Público de Produtos
-  const resProdutos = http.get(`${BASE_URL}/products`);
-  check(resProdutos, {
-    'Produtos - Status é 200': (r) => r.status === 200,
+  // Teste de Healthcheck Live
+  const resLive = http.get(`${BASE_URL}/_health/live`);
+  check(resLive, {
+    'Health Live - Status é 200': (r) => r.status === 200,
   });
 
-  // Teste no Endpoint Público de Clientes
-  const resClientes = http.get(`${BASE_URL}/customers`);
-  check(resClientes, {
-    'Clientes - Status é 200': (r) => r.status === 200,
+  // Teste de Healthcheck Ready
+  const resReady = http.get(`${BASE_URL}/_health/ready`);
+  check(resReady, {
+    'Health Ready - Status é 200': (r) => r.status === 200,
   });
 
   sleep(1);
